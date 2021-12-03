@@ -1,4 +1,23 @@
 const Header = (title, date, temp) => {
+  const headerDiv = document.createElement('div');
+  const spanDate = document.createElement('span');
+  const titleText = document.createElement('h1');
+  const spanTemp = document.createElement('span');
+
+  spanDate.textContent = date;
+  titleText.textContent = title;
+  spanTemp.textContent = temp;
+
+  headerDiv.appendChild(spanDate);
+  headerDiv.appendChild(titleText);
+  headerDiv.appendChild(spanTemp);
+
+  headerDiv.classList.add('header');
+  spanDate.classList.add('date');
+  spanTemp.classList.add('temp');
+
+  return headerDiv;
+
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -13,7 +32,13 @@ const Header = (title, date, temp) => {
   //
 }
 
+
 const headerAppender = (selector) => {
+  const headerContainer = document.querySelector(selector);
+  const newHeader = Header('Hello world', '12/3', '65');
+  headerContainer.appendChild(newHeader);
+
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
@@ -21,5 +46,6 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
 }
+
 
 export { Header, headerAppender }
