@@ -1,4 +1,4 @@
-const topicsArr = ['javascript', 'bootstrap', 'technology']
+import axios from 'axios';
 
 const Tabs = (topics) => {
   const topicWrapper = document.createElement('div');
@@ -38,9 +38,19 @@ const Tabs = (topics) => {
   //
 }
 
-console.log(Tabs(topicsArr));
+//console.log(Tabs(topicsArr));
+
 
 const tabsAppender = (selector) => {
+  const tabsContainer = document.querySelector(selector);
+  axios.get('http://localhost:5001/api/topics')
+  .then(resp => {
+    tabsContainer.appendChild(Tabs(resp.data.topics));
+  }).catch(err => {
+    console.log(err);
+  }).finally(() => {
+    console.log('hello world');
+  });
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
@@ -49,5 +59,7 @@ const tabsAppender = (selector) => {
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
 }
+
+//im getting the exact result wanted by instructions but test isn't passing. maybe because i had to change local host to 5001
 
 export { Tabs, tabsAppender }

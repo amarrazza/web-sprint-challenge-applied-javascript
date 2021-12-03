@@ -35,7 +35,7 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
   const headerContainer = document.querySelector(selector);
-  const newHeader = Header('Hello world', '12/3', '65');
+  const newHeader = Header('ETH is money', '12/3', '65');
   headerContainer.appendChild(newHeader);
 
 
@@ -47,5 +47,6 @@ const headerAppender = (selector) => {
   //
 }
 
+// if you could please tell me why running this headerAppender('div.header-container'); gives me an error that appendChild reads null, that would be much appreciated thank you
 
 export { Header, headerAppender }
