@@ -22,6 +22,10 @@ const Card = (article) => {
   authorDiv.appendChild(imgContainer);
   authorDiv.appendChild(authorName);
   imgContainer.appendChild(authorImg);
+
+  cardWrapper.addEventListener('click', () => {
+    console.log(article.headline);
+  })
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -69,7 +73,7 @@ const cardAppender = (selector) => {
     console.log(err);
   }).finally(() => {
     console.log('almost thar');
-  })
+  });
 
   // TASK 6
   // ---------------------
